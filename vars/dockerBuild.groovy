@@ -4,8 +4,8 @@ def call(String project, String hubUser) {
     sh "docker tag ${hubUser}/${project} ${hubUser}/${project}:latest"
     withCredentials([usernamePassword(
             credentialsId: 'docker',
-            usernameVariable: 'USER',
-            passwordVariable: 'PASS'
+            usernameVariable: "USER",
+            passwordVariable: "PASS"
     )]) {
         sh "docker login -u '$USER' -p '$PASS'"
     }
